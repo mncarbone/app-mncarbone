@@ -12,4 +12,6 @@ mysqli_select_db($conn, $dbname);
 $res = mysqli_query($conn, $sql);
 $data = array();
 while($obj = mysqli_fetch_object($res)) $data[] = $obj;
+
+http_response_code (202);
 echo json_encode($data);
