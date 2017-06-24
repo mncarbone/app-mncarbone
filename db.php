@@ -13,5 +13,6 @@ $res = mysqli_query($conn, $sql);
 $data = array();
 while($obj = mysqli_fetch_object($res)) $data[] = $obj;
 
-http_response_code (202);
+http_response_code (200);
+header('Content-type: application/json');
 echo json_encode($data);
