@@ -10,6 +10,6 @@ $dbname = getenv('OPENSHIFT_GEAR_NAME'); // Database name
 $conn = mysqli_connect($dbhost, $dbusername, $dbpassword);
 mysqli_select_db($conn, $dbname);
 $res = mysqli_query($conn, $sql);
-$data = mysqli_fetch_all($res);
+$data = array();
+while($data[] = mysqli_fetch_object($res));
 echo json_encode($data);
-?>
