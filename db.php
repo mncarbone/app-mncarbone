@@ -11,5 +11,5 @@ $conn = mysqli_connect($dbhost, $dbusername, $dbpassword);
 mysqli_select_db($conn, $dbname);
 $res = mysqli_query($conn, $sql);
 $data = array();
-while($data[] = mysqli_fetch_object($res));
+while($obj = mysqli_fetch_object($res)) $data[] = $obj;
 echo json_encode($data);
