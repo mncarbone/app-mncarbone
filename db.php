@@ -1,11 +1,14 @@
 <?php
 $sql = $_REQUEST['sql'];
-$usr = $_REQUEST['usr'];
-$pass = $_REQUEST['pass'];
-$db = $_REQUEST['db'];
 
-$conn = mysqli_connect('localhost', $usr, $pass);
-mysqli_select_db($conn, $db);
+$dbhost = getenv('OPENSHIFT_MYSQL_DB_HOST'); // Host name
+$dbport = getenv('OPENSHIFT_MYSQL_DB_PORT'); // Host port
+$dbusername = getenv('OPENSHIFT_MYSQL_DB_USERNAME'); // MySQL username
+$dbpassword = getenv('OPENSHIFT_MYSQL_DB_PASSWORD'); // MySQL password
+$dbname = getenv('OPENSHIFT_GEAR_NAME'); // Database name
+
+$conn = mysqli_connect($dbhost, $dbusername, $dbpassword);
+mysqli_select_db($conn, $dbname);
 $res = mysqli_query($conn, $sql);
 $data = mysqli_fetch_all($res);
 echo json_encode($data);
