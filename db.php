@@ -1,8 +1,8 @@
 <?php
 $sql = $_REQUEST['sql'];
 
-$dbhost = getenv('MYSQL_SERVICE_HOST'); // Host name
-$dbport = getenv('MYSQL_SERVICE_PORT'); // Host port
+$dbhost = getenv('mysql_SERVICE_HOST'); // Host name
+$dbport = getenv('mysql_SERVICE_PORT'); // Host port
 $dbusername = getenv('MYSQL_USER'); // MySQL username
 $dbpassword = getenv('MYSQL_PASSWORD'); // MySQL password
 $dbname = getenv('MYSQL_DATABASE'); // Database name
